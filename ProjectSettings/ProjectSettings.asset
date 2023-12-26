@@ -161,7 +161,7 @@ PlayerSettings:
     tvOS: 0
   overrideDefaultApplicationIdentifier: 0
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 22
+  AndroidMinSdkVersion: 23
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -838,11 +838,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 67a61586-54a5-4e95-8fbb-7943480310db
+  cloudProjectId: a00ebddd-d994-454c-9454-76b9ec42af30
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Kart
-  organizationId: bruntastico
+  projectName: Kart (1)
+  organizationId: cristopher_faundez_uniacc_edu
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
