@@ -114,8 +114,8 @@ public class LobbyRelay : MonoBehaviour
 
     public async void FindMatch()
     {
+        
         Debug.Log("Looking for a lobby...");
-
         UpdateState?.Invoke("Looking for a match...");
 
         try

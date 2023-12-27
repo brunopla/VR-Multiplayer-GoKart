@@ -1,0 +1,14 @@
+Game flow:
+Entrar a menu de seleccion de carro
+seleccionar carro, cambiar de escena a 1.
+realizar coneccion a multiplayer
+esperar hasta que el anfitrion comience la partida.
+comenzar partida
+esperar hasta que un jugador tenga x numero de vueltas, por default 1.
+terminar partida 
+designar ganador
+
+
+Bugs:
+
+cosas a implementar:

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Conection : MonoBehaviour
 {
-    private void Start()
+    private IEnumerator Start()
     {
 		try
 		{
@@ -15,7 +15,8 @@ public class Conection : MonoBehaviour
 		}
 		catch (System.Exception)
 		{
-			return;
+			yield break;
 		}
+		yield return new WaitUntil(() => GameManager.instance.partidaComenzada);
     }
 }
