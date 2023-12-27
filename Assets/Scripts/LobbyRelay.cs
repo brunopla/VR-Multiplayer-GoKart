@@ -10,6 +10,7 @@ using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -123,6 +124,7 @@ public class LobbyRelay : MonoBehaviour
 
             // Add options to the matchmaking (mode, rank, etc..)
             QuickJoinLobbyOptions options = new QuickJoinLobbyOptions();
+                
 
             // Quick-join a random lobby
             Lobby lobby = await Lobbies.Instance.QuickJoinLobbyAsync(options);

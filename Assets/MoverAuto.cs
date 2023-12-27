@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class MoverAuto : MonoBehaviour
-{
+public class MoverAuto : NetworkBehaviour
+{ 
 
     public Transform steeringWheelTransform;
     public Transform vehicleTransform;
@@ -14,7 +15,7 @@ public class MoverAuto : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (canMove)
+        if (canMove && IsOwner)
         {
             HandleMovement();
             if (Input.GetKey(KeyCode.Space))

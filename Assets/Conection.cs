@@ -6,8 +6,16 @@ using UnityEngine;
 public class Conection : MonoBehaviour
 {
     private void Start()
-    {        
-        if (GameManager.instance.estaSiendoServer) NetworkManager.Singleton.StartHost();
-        else NetworkManager.Singleton.StartClient();
+    {
+		try
+		{
+			if (GameManager.instance.estaSiendoServer) NetworkManager.Singleton.StartHost();
+			else NetworkManager.Singleton.StartClient();
+
+		}
+		catch (System.Exception)
+		{
+			return;
+		}
     }
 }
