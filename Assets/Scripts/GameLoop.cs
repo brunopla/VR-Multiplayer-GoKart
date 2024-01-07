@@ -8,6 +8,7 @@ using TMPro;
 public class GameLoop : NetworkBehaviour
 {
     [SerializeField] List<Transform> posiciones;
+    [SerializeField] List<GameObject> autosPrefabs;
     public Dictionary<int, int> posicionesPartida = new Dictionary<int, int>(); 
     public NetworkVariable<bool> partidaTerminada = new NetworkVariable<bool>(false,readPerm: NetworkVariableReadPermission.Everyone,writePerm: NetworkVariableWritePermission.Server);
     public bool comenzar;
@@ -63,5 +64,22 @@ public class GameLoop : NetworkBehaviour
         TMP_Text tMP_Text = GameObject.FindGameObjectsWithTag("feedText").First().GetComponent<TMP_Text>();
         tMP_Text.text = $" Player n:{NetworkManager.Singleton.LocalClientId} posicion: {posicionesPartida[(int)NetworkManager.LocalClientId]}";
         //
+    }
+    /// <summary>
+    /// Crea el auto seleccionado en la escena 0
+    /// </summary>
+    [ClientRpc] void InstanciarAutoClientRpc()
+    {
+        var auto = autosPrefabs.Where(auto => auto.name == GameManager.instance.nombrePrefabAuto).FirstOrDefault();
+        if (auto != null ) 
+        {
+            ServerSpawnAutoServerRpc(GameManager.instance.nombrePrefabAuto,NetworkManager.Singleton.LocalClientId);
+        }
+    }
+    [ServerRpc(RequireOwnership=false)] public void ServerSpawnAutoServerRpc(string  prefabNombre, ulong clientID)
+    {
+        var auto = autosPrefabs.Where(auto => auto.name == prefabNombre).FirstOrDefault();
+        auto.GetComponent<NetworkObject>().SpawnWithOwnership(clientID,destroyWithScene: true);
+
     }
 }
